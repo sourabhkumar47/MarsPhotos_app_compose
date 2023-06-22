@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,11 +37,11 @@ fun HomeScreen(
  * LoadingScreen displaying loading icon.
  */
 @Composable
-fun LoadingScreen(modifier: Modifier) {
+fun LoadingScreen(modifier: Modifier = Modifier) {
     Image(
-        modifier = modifier.padding(200.dp),
+        modifier = modifier.size(200.dp),
         painter = painterResource(R.drawable.loading_img),
-        contentDescription = null
+        contentDescription = stringResource(R.string.loading)
     )
 }
 
