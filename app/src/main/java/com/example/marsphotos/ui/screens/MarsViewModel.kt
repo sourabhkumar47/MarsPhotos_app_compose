@@ -11,7 +11,7 @@ import java.io.IOException
 
 // MarsUiState for loading ...
 sealed interface MarsUiState {
-    data class Success(val photo: String) : MarsUiState
+    data class Success(val photos: String) : MarsUiState
     object Error : MarsUiState
     object Loading : MarsUiState
 }
