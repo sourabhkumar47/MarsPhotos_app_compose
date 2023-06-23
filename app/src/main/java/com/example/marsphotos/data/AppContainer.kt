@@ -10,7 +10,7 @@ interface AppContainer {
     val marsPhotosRepository: MarsPhotosRepository
 }
 
-class DefaultContainer : AppContainer {
+class DefaultAppContainer  : AppContainer {
 
     //BASE_URL is the base URL of the web service.
     private val baseUrl =
