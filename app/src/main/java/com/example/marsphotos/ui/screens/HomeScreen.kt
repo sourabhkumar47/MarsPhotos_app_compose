@@ -20,6 +20,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -113,17 +114,18 @@ fun MyUI() {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
-        CircularProgressIndicator(
-            modifier = Modifier.size(size = 55.dp),
-            color = Color.White,
-            strokeWidth = 6.dp
-        )
-        Spacer(modifier = Modifier.width(width = 8.dp))
-
-        Text(
-            text = stringResource(R.string.loading),
-            style = androidx.compose.material3.MaterialTheme.typography.displayMedium
-        )
+//        CircularProgressIndicator(
+//            modifier = Modifier.size(size = 55.dp),
+//            color = Color.White,
+//            strokeWidth = 6.dp
+//        )
+        LinearProgressIndicator()
+//        Spacer(modifier = Modifier.width(width = 8.dp))
+//
+//        Text(
+//            text = stringResource(R.string.loading),
+//            style = androidx.compose.material3.MaterialTheme.typography.displayMedium
+//        )
     }
 
 }
