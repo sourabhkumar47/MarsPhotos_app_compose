@@ -26,11 +26,9 @@ class MarsViewModelTest {
         )
         assertEquals(
             MarsUiState.Success(
-                "Success .${FakeDataSource.photosList.size} Mars " +
-                        "photos retrieved"
+                FakeDataSource.photosList
             ),
             marsViewModel.marsUiState
         )
-
     }
 }
