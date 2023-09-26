@@ -2,30 +2,25 @@ package com.example.marsphotos.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -38,12 +33,18 @@ import com.example.marsphotos.R
 import com.example.marsphotos.network.MarsPhoto
 import com.example.marsphotos.ui.theme.MarsPhotosTheme
 
+import androidx.compose.runtime.getValue
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.rememberLottieComposition
+
 @Composable
 fun HomeScreen(
     marsUiState: MarsUiState,retryAction: () -> Unit, modifier: Modifier = Modifier
 ) {
     when (marsUiState) {
-        is MarsUiState.Loading -> LoadingScreen(modifier = modifier.fillMaxSize())
+        is MarsUiState.Loading -> LoadingScreen()
         is MarsUiState.Success -> PhotoGridScreen(photos = marsUiState.photos, modifier = modifier)
         is MarsUiState.Error -> ErrorScreen(retryAction, modifier = modifier.fillMaxSize())
     }
@@ -94,18 +95,28 @@ fun MarsPhotoCard(photo: MarsPhoto, modifier: Modifier = Modifier) {
  * LoadingScreen displaying loading icon.
  */
 @Composable
-fun LoadingScreen(modifier: Modifier = Modifier) {
-    Box(
-        modifier = modifier,
-        contentAlignment = Alignment.Center
-    ) {
-        MyUI()
-    }
+fun LoadingScreen() {
+//    Box(
+//        modifier = modifier,
+//        contentAlignment = Alignment.Center
+//    ) {
+//        MyUI()
+//    }
+
+
 //    Image(
 //        modifier = modifier.size(200.dp),
 //        painter = painterResource(R.drawable.loading_img),
 //        contentDescription = stringResource(R.string.loading)
 //    )
+
+    //Lottie Animation
+    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading))
+    LottieAnimation(
+        modifier = Modifier.size(200.dp),
+        composition = composition,
+        iterations = LottieConstants.IterateForever
+    )
 }
 
 @Composable
@@ -120,6 +131,7 @@ fun MyUI() {
 //            strokeWidth = 6.dp
 //        )
         LinearProgressIndicator()
+
 //        Spacer(modifier = Modifier.width(width = 8.dp))
 //
 //        Text(
