@@ -111,7 +111,9 @@ fun LoadingScreen() {
 //    )
 
     //Lottie Animation
-    val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.loading))
+    val composition by rememberLottieComposition(
+        LottieCompositionSpec.RawRes(R.raw.circ_squ_l_round)
+    )
     LottieAnimation(
         modifier = Modifier.size(200.dp),
         composition = composition,
